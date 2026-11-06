@@ -332,9 +332,9 @@
   </footer>
 
   <script>
-    const STORAGE_KEY = "dubai_ai_revenue_hub_state_v2";
+    const STORAGE_KEY = "dubai_ai_revenue_hub_state_v3";
     const DEFAULT_STATE = {
-      banner: "⚡ Instant B2B Delivery: Custom Dubai DLD Interactive Investor Portals (100 AED) · Full WCAG 2.2 & Trakheesi Compliance Remediation ($199 USD)",
+      banner: "⚡ Instant B2B Delivery: Custom Dubai DLD Interactive Investor Portals (100 AED) · 48h Turnkey AI Engineering ($1,200 USD) · Live DLD 2026 Data Packs",
       categories: ["All", "Deal-Room Portals", "Compliance & Security", "Apify & B2B APIs", "Custom AI Engineering"],
       items: [
         {
@@ -343,6 +343,20 @@
           category: "Deal-Room Portals",
           price: "100 AED",
           desc: "Personalized interactive Dubai DLD ROI, mortgage cashflow, and Golden Visa portal tailored with your client's name and property selection. Ready in 24h, one-time payment without subscription."
+        },
+        {
+          id: "srv_6",
+          title: "Official DLD 2026 Institutional Market Intelligence & Off-Plan Absorption Pack",
+          category: "Deal-Room Portals",
+          price: "900 AED ($245)",
+          desc: "Verified Dubai Land Department (DLD) transaction leaderboard (JVC 11,184 deals, Business Bay 2,180 AED/sqft +10% vol, Dubai Marina +24% median price, Arjan +14.2% YoY) with white-label investor PDF & CSV data."
+        },
+        {
+          id: "srv_7",
+          title: "Fast-Track 48h Turnkey AI Agent & Python Automation Delivery (B2B Fixed-Scope)",
+          category: "Custom AI Engineering",
+          price: "4,400 AED ($1,200)",
+          desc: "Skip the 3-month $150k/yr recruitment cycle: we build, test, and deploy your production LLM Agent, RAG pipeline, or FastAPI + Playwright microservice in 48 hours for a fixed turnkey fee."
         },
         {
           id: "srv_2",
@@ -462,21 +476,23 @@
       const url = document.getElementById("auditUrlInput").value.trim() || "https://your-agency.ae";
       const area = document.getElementById("dldAreaInput").value;
       const price = parseFloat(document.getElementById("dldPriceInput").value) || 2500000;
-      const yields = { "Business Bay": 0.074, "Dubai Marina": 0.078, "Downtown Dubai": 0.068, "JVC": 0.086, "Palm Jumeirah": 0.064 };
+      const yields = { "Business Bay": 0.070, "Dubai Marina": 0.070, "Downtown Dubai": 0.068, "JVC": 0.0684, "Palm Jumeirah": 0.064 };
+      const psf = { "Business Bay": "2,180 AED/sqft (1,358 deals 90d)", "Dubai Marina": "1,880 AED/sqft (+24% median price)", "Downtown Dubai": "2,690 AED/sqft", "JVC": "1,471 AED/sqft (11,184 deals 12M)", "Palm Jumeirah": "3,450 AED/sqft" };
       const cagr = { "Business Bay": 0.089, "Dubai Marina": 0.082, "Downtown Dubai": 0.095, "JVC": 0.079, "Palm Jumeirah": 0.112 };
-      const y = yields[area] || 0.075;
+      const y = yields[area] || 0.070;
       const g = cagr[area] || 0.085;
-      const netRent = Math.round(price * (y - 0.012));
+      const netRent = Math.round(price * (y - 0.011));
       const val5y = Math.round(price * Math.pow(1 + g, 5));
 
       const box = document.getElementById("auditResultBox");
       box.style.display = "block";
       box.innerHTML = `
-        <h3 style="margin-bottom:0.4rem;">✅ Live DLD & Compliance Report for <span style="color:var(--accent);">${url}</span></h3>
+        <h3 style="margin-bottom:0.4rem;">✅ Live DLD 2026 & Compliance Report for <span style="color:var(--accent);">${url}</span></h3>
         <p style="font-size:0.9rem;">
+          • <strong>${area} Official DLD Benchmark:</strong> ${psf[area] || "2,100 AED/sqft"}<br/>
           • <strong>${area} Projected Net Annual Income:</strong> ${netRent.toLocaleString()} AED/yr (${((netRent/price)*100).toFixed(2)}% Net Yield)<br/>
           • <strong>5-Year Projected Capital Value (DLD CAGR):</strong> ${val5y.toLocaleString()} AED<br/>
-          • <strong>WCAG 2.2 & DLD Trakheesi Readiness:</strong> Ready for 1-Click Deal-Room (100 AED) or Full Compliance Pack ($199 USD).
+          • <strong>Instant Activation:</strong> <a href="https://pay.ziina.com/davidhabana98?source=app" target="_blank" style="color:var(--accent); font-weight:700;">Pay via Ziina Instant Link →</a>
         </p>
       `;
     }
