@@ -249,28 +249,43 @@
 
   <!-- Multi-Rail Payment Checkout Modal (Ziina / UAE Bank / KuCoin USDT) -->
   <div class="modal-backdrop" id="paymentModal">
-    <div class="modal" style="max-width:520px;">
+    <div class="modal" style="max-width:540px;">
       <div style="display:flex; justify-content:space-between; align-items:center;">
         <h3 id="payModalTitle">Instant Checkout</h3>
         <button class="pill-btn" onclick="closeModals()">✕</button>
       </div>
-      <p style="font-size:0.88rem; color:var(--muted); margin-top:0.35rem;">
-        Our automated payment listener detects your transfer in real time and activates your order immediately:
+      <p style="font-size:0.86rem; color:var(--muted); margin-top:0.35rem;">
+        Our automated listener detects your transfer in real time and activates your order immediately:
       </p>
-      <div class="pay-option">
-        <strong>1. Ziina Instant Payment (AED / Apple Pay / Card)</strong>
-        <p style="font-size:0.84rem; color:var(--muted);">Instant UAE payment via Ziina link or phone reference.</p>
+      <div class="pay-option" style="display:flex; justify-content:space-between; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+        <div>
+          <strong>1. Ziina Instant Payment (AED / Apple Pay / Card)</strong>
+          <p style="font-size:0.82rem; color:var(--muted);">Instant UAE payment via official Ziina checkout (`@davidhabana98`).</p>
+        </div>
+        <a href="https://pay.ziina.com/davidhabana98?source=app" target="_blank" rel="noopener" class="action-btn" style="text-decoration:none; padding:0.5rem 0.95rem; font-size:0.82rem;" data-spy-convert="pay_ziina">Pay with Ziina ↗</a>
       </div>
       <div class="pay-option">
-        <strong>2. Local UAE Bank Transfer (Mashreq Bank AED)</strong>
-        <p style="font-size:0.84rem; color:var(--muted);">Instant AANI / IFT transfer with automatic email credit reconciliation.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+          <strong>2. Local UAE Bank Transfer (Mashreq Bank)</strong>
+          <button class="pill-btn" style="font-size:0.76rem; padding:0.3rem 0.65rem;" onclick="navigator.clipboard.writeText('AE150330000019102049835'); this.innerText='Copied IBAN ✓';">Copy IBAN</button>
+        </div>
+        <p style="font-size:0.81rem; color:var(--muted); margin-top:0.25rem; line-height:1.45;">
+          Holder: <strong>David Alejandro Rodriguez</strong><br/>
+          Account No: <code style="user-select:all;">019102049835</code> &nbsp;|&nbsp; IBAN: <code style="user-select:all;">AE150330000019102049835</code>
+        </p>
       </div>
       <div class="pay-option">
-        <strong>3. Crypto Instant Settlement (KuCoin — USDT / USDC)</strong>
-        <p style="font-size:0.84rem; color:var(--muted);">Zero-fee KuCoin UID or TRC20 / Arbitrum / ERC20 automated verification.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:0.5rem; flex-wrap:wrap;">
+          <strong>3. Crypto Instant Settlement (USDT — BEP20 / BSC)</strong>
+          <button class="pill-btn" style="font-size:0.76rem; padding:0.3rem 0.65rem;" onclick="navigator.clipboard.writeText('0x86d9e0ea7570e8b8c46e4e2cc881d3db278edcc3'); this.innerText='Copied Wallet ✓';">Copy USDT BEP20</button>
+        </div>
+        <p style="font-size:0.79rem; color:var(--muted); margin-top:0.25rem; word-break:break-all;">
+          Network: <strong>BNB Smart Chain (BEP20)</strong><br/>
+          Address: <code style="user-select:all;">0x86d9e0ea7570e8b8c46e4e2cc881d3db278edcc3</code>
+        </p>
       </div>
       <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1.1rem;">
-        <span style="font-size:0.82rem; color:var(--muted);">Confirm order & receive instant payment link on WhatsApp:</span>
+        <span style="font-size:0.82rem; color:var(--muted);">Once paid, tap WhatsApp for instant onboarding:</span>
         <a href="https://wa.me/971508379080" target="_blank" rel="noopener" class="wa-icon-btn" aria-label="WhatsApp" data-spy-convert="checkout_wa">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
         </a>
